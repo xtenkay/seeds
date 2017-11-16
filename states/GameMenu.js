@@ -1,6 +1,13 @@
 var GameMenu = function() {};
 
 GameMenu.prototype = {
+  
+    // We'll just let the className fall back to the default setting
+    // so there's no need to put it in our menuConfig...
+    menuConfig: {
+      startY: 260,
+      startX: 30
+    },
 
   addMenuOption: function(text, callback) {
     var txt = game.add.text(30, (this.optionCount * 80) + 200, text, style.navitem.default);
@@ -37,6 +44,7 @@ GameMenu.prototype = {
     });
     this.addMenuOption('Options', function () {
       console.log('You clicked Options!');
+      game.state.start("Options");
     });
     this.addMenuOption('Credits', function () {
       console.log('You clicked Credits!');
