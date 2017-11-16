@@ -12,6 +12,7 @@
   game.load.script('gameover','states/gameover.js');
   game.load.script('credits', 'states/credits.js');
   game.load.script('options', 'states/options.js');
+  game.load.script('style', 'lib/style.js');
   },
 
   loadBgm: function () {
