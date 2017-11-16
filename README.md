@@ -1,2 +1,2 @@
-# seeds
+# Seeds
 Seeds Project for College
