@@ -7,7 +7,7 @@ Game.prototype = {
       },
     
       addMenuOption: function(text, callback) {
-        var optionStyle = { font: '30pt TheMinion', fill: 'white', align: 'left', stroke: 'rgba(0,0,0,0)', srokeThickness: 4};
+        var optionStyle = { font: '30pt sourceSans', fill: 'white', align: 'left', stroke: 'rgba(0,0,0,0)', srokeThickness: 4};
         var txt = game.add.text(game.world.centerX, (this.optionCount * 80) + 200, text, optionStyle);
         txt.anchor.setTo(0.5);
         txt.stroke = "rgba(0,0,0,0";
@@ -37,7 +37,7 @@ Game.prototype = {
         this.stage.disableVisibilityChange = false;
         game.add.sprite(0, 0, 'stars');
         this.addMenuOption('Next ->', function (e) {
-          this.game.state.start("GameOver");
+          this.game.state.start("Main");
         });
       }
     };

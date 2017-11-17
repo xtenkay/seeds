@@ -1,31 +1,19 @@
 var GameMenu = function() {};
 
-GameMenu.prototype = {
-  
-    // We'll just let the className fall back to the default setting
-    // so there's no need to put it in our menuConfig...
-    menuConfig: {
-      startY: 260,
-      startX: 30
-    },
 
-  addMenuOption: function(text, callback) {
-    var txt = game.add.text(30, (this.optionCount * 80) + 200, text, style.navitem.default);
-    txt.inputEnabled = true;
-    txt.events.onInputUp.add(callback);
-    txt.events.onInputOver.add(function (target) {
-      target.setStyle(style.navitem.hover);
-    });
-    txt.events.onInputOut.add(function (target) {
-      target.setStyle(style.navitem.default);
-    });
-    this.optionCount ++;
+GameMenu.prototype = {
+
+  menuConfig: {
+    startY: 260,
+    startX: 30
   },
 
   init: function () {
     this.titleText = game.make.text(game.world.centerX, 100, "Game Title", {
       font: 'bold 60pt sourceSans',
-      fill: '#FDFFB5',
+      fill: 'black',
+      stroke: 'white',
+      strokeThickness: '5',
       align: 'center'
     });
     this.titleText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
@@ -34,20 +22,28 @@ GameMenu.prototype = {
   },
 
   create: function () {
-    game.stage.disableVisibilityChange = false;
 
+    if (musicPlayer.name !== "clearAir" && playMusic) {
+      musicCreated = true;
+      musicPlayer.stop();
+      musicPlayer = game.add.audio('clearAir');
+      musicPlayer.loop = true;
+      musicPlayer.play();
+    }
+    game.stage.disableVisibilityChange = true;
     game.add.sprite(0, 0, 'menu-bg');
     game.add.existing(this.titleText);
 
     this.addMenuOption('Start', function () {
-      console.log('You clicked Start!');
+      game.state.start("Main");
     });
     this.addMenuOption('Options', function () {
-      console.log('You clicked Options!');
       game.state.start("Options");
     });
     this.addMenuOption('Credits', function () {
-      console.log('You clicked Credits!');
+      game.state.start("Credits");
     });
   }
 };
+
+Phaser.Utils.mixinPrototype(GameMenu.prototype, mixins);
