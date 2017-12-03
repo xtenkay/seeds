@@ -75,7 +75,7 @@
   create: function() {
     this.status.setText('Ready!');
     this.addGameStates();
-    this.addGameMusic();
+    //this.addGameMusic();
 
   setTimeout(function () {
     game.state.start("GameMenu");

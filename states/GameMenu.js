@@ -27,13 +27,13 @@ GameMenu.prototype = {
 
   create: function () {
 
-    if (musicPlayer.name !== "clearAir" && playMusic) {
+    /* if (musicPlayer.name !== "clearAir" && playMusic) {
       musicCreated = true;
       musicPlayer.stop();
       musicPlayer = game.add.audio('clearAir');
       musicPlayer.loop = true;
       musicPlayer.play();
-    }
+    } */
     game.stage.disableVisibilityChange = true;
     game.add.sprite(0, 0, 'background');
     game.add.existing(this.titleText);

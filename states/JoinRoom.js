@@ -5,6 +5,7 @@ var promptText = "Numero da Sala";
 
 function setRoomNumber(){
 	 roomNumber = prompt("Numero da Sala", promptText);
+	 roomNumber = roomNumber.replace(/[^0-9\.]+/g, '');
 	if (roomNumber.length != 3){
 		promptText = "O Número deve ter 3 digitos!";
 		setRoomNumber();
