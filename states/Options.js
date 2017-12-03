@@ -8,6 +8,12 @@ Options.prototype = {
     startX: "center"
   },
 
+  preload: function(){
+
+		
+    game.load.image('background', 'assets/images/backgroundJoin.png');
+				
+		},
 
   init: function () {
     this.titleText = game.make.text(game.world.centerX, 100, "Options Menu", {
@@ -21,11 +27,12 @@ Options.prototype = {
     this.titleText.anchor.set(0.5);
     this.optionCount = 1;
   },
+
   create: function () {
+    game.add.sprite(0,0,'background');
     var playSound = gameOptions.playSound,
         playMusic = gameOptions.playMusic;
 
-    game.add.sprite(0, 0, 'options-bg');
     game.add.existing(this.titleText);
     this.addMenuOption(playMusic ? 'Mute Music' : 'Play Music', function (target) {
       playMusic = !playMusic;

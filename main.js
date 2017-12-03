@@ -17,10 +17,9 @@ Main.prototype = {
         //game.load.reset();
         //game.load.removeAll();
 
-        game.load.image('stars',    'assets/images/stars.jpg');
         game.load.image('loading',  'assets/images/loading.png');
         game.load.image('brand',    'assets/images/logo.png');
-        game.load.image('background', 'assets/images/background.png');
+        game.load.image('background', 'assets/images/backgroundMenu.png');
         game.load.script('utils',   'lib/utils.js');
         game.load.script('splash',  'states/Splash.js');
       },

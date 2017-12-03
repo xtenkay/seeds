@@ -8,6 +8,10 @@ GameMenu.prototype = {
     startX: 30
   },
 
+  preload: function () {
+    game.load.image('background', 'assets/images/backgroundMenu.png');
+  },
+
   init: function () {
     this.titleText = game.make.text(game.world.centerX, 100, "Game Title", {
       font: 'bold 60pt sourceSans',
@@ -31,11 +35,14 @@ GameMenu.prototype = {
       musicPlayer.play();
     }
     game.stage.disableVisibilityChange = true;
-    game.add.sprite(0, 0, 'menu-bg');
+    game.add.sprite(0, 0, 'background');
     game.add.existing(this.titleText);
 
-    this.addMenuOption('Start', function () {
-      game.state.start("Game");
+    this.addMenuOption('Create', function () {
+      game.state.start("CreateRoom");
+    });
+    this.addMenuOption('Join', function () {
+      game.state.start("JoinRoom");
     });
     this.addMenuOption('Options', function () {
       game.state.start("Options");

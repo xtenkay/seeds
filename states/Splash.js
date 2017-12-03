@@ -11,6 +11,8 @@
     game.load.script('gameover','states/gameover.js');
     game.load.script('credits', 'states/credits.js');
     game.load.script('options', 'states/options.js');
+    game.load.script('JoinRoom', 'states/JoinRoom.js');
+    game.load.script('CreateRoom', 'states/CreateRoom.js');
     
   },
 
@@ -21,9 +23,7 @@
   },
 
   loadImages: function () {
-    game.load.image('menu-bg', 'assets/images/background.png');
-    game.load.image('options-bg', 'assets/images/options-bg.png');
-    game.load.image('gameover-bg', 'assets/images/gameover-bg.png');
+    game.load.image('menu-bg', 'assets/images/backgroundMenu.png');
   },
 
   loadFonts: function () {
@@ -62,6 +62,8 @@
     game.state.add("GameOver",GameOver);
     game.state.add("Credits",Credits);
     game.state.add("Options",Options);
+    game.state.add("JoinRoom",JoinRoom);
+    game.state.add("CreateRoom", CreateRoom);
     },
 
     addGameMusic: function () {
